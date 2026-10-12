@@ -1,0 +1,15 @@
+loan_id,loan_date,campus,item_category
+L015,2026-09-10,Duluth,laptop
+L016,2026-09-10,Online,projector
+L017,2026-09-11,Minneapolis,laptop
+L018,2026-09-11,StPaul,laptop
+L019,2026-09-12,Online,camera
+L020,2026-09-12,Duluth,projector
+L021,2026-09-15,StPaul,laptop
+L022,2026-09-15,Minneapolis,camera
+L023,2026-09-16,Online,laptop
+L024,2026-09-16,StPaul,camera
+L025,2026-09-17,Duluth,laptop
+L026,2026-09-17,Minneapolis,projector
+L027,2026-09-18,Online,laptop
+L028,2026-09-18,StPaul,camera

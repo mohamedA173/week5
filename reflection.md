@@ -1,0 +1,7 @@
+# Reflection
+
+My project basically does MapReduce but really small. The map step reads each partition and turns every loan into a pair like ("laptop", 1). The shuffle step takes all the pairs from every partition and groups them by category. Then the reduce step adds them up, which gave me 20 laptops, 13 cameras, and 7 projectors. What made sense to me is that the map part can be done separately for each partition, but you can't get the final count until the shuffle puts the same categories together.
+
+If this was a huge dataset it would be a lot harder. There could be thousands of partitions on different computers, and the shuffle would have to send a ton of data over the network, which would slow everything down. Skew could also be a problem. If almost all the loans were laptops, the one reducer counting laptops would have way more work than the others and everything would be waiting on it. One way to help is to add up the counts in each partition first, so partition1 sends "laptop 7" instead of seven 1s.
+
+Spark is better than regular MapReduce for a few reasons. MapReduce saves everything to disk after each step, but Spark keeps the data in memory, so it's a lot faster. Spark also makes a DAG, which is a plan of all the steps, before it runs anything. That way it can figure out the best order and only shuffle when it really has to. It also has functions like reduceByKey that combine the data before the shuffle, so less data has to move.
